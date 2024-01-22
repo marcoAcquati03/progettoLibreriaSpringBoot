@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrazione</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px; /* Dimensione del font del bottone */
+    }
+
+    .small-button {
+      font-size: 12px; /* Dimensione del font per il bottone più piccolo */
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: #ff0000;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<form action="#" th:action="@{/validationSignUp}" th:object="${user}" method="post">
+  <h2>Registrazione</h2>
+
+  <div th:if="${#fields.hasErrors('global')}">
+    <p th:each="err : ${#fields.errors('global')}" th:text="${err}" class="error" />
+  </div>
+
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" th:field="*{nome}" />
+  <p class="error" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+
+  <label for="cognome">Cognome:</label>
+  <input type="text" id="cognome" th:field="*{cognome}" />
+  <p class="error" th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></p>
+
+  <label for="username">Username:</label>
+  <input type="text" id="username" th:field="*{username}" />
+  <p class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" th:field="*{password}" />
+  <p class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+
+  <input type="submit" value="Registrati" class="small-button">
+
+</form>
+
+<p>Hai già un account? <a href="login"><button class="small-button">Login</button></a></p>
+
+</body>
+</html>

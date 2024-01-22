@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f5f5f5;
+      margin: 20px;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+
+    table, td {
+      border: 1px solid #ddd;
+    }
+
+    td {
+      padding: 8px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"], button {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover, button:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+<form action="signUp" method="post" th:action="@{/validationLogin}">
+  <h2>Login</h2>
+
+  <table>
+    <tr>
+      <td><input type="text" name="username" placeholder="Username"></td>
+    </tr>
+    <tr>
+      <td><input type="password" name="password" placeholder="Password"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Login"></td>
+    </tr>
+  </table>
+
+  <p>Non hai l'account? <a href="/">Registrati</a></p>
+</form>
+
+</body>
+</html>
